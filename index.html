@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore receitas, ingredientes, categorias e curiosidades sobre drinks e coqueteis em uma experiencia visual premium.">
+  <meta name="keywords" content="drinks, coqueteis, receitas de drinks, mojito, margarita, negroni, martini, mixologia">
+  <meta name="author" content="Drink House">
+  <meta name="theme-color" content="#050505">
+  <meta property="og:title" content="Drink House | Explore o Universo dos Drinks">
+  <meta property="og:description" content="Receitas, ingredientes, categorias e curiosidades sobre drinks em um site moderno e interativo.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?auto=format&fit=crop&w=1200&q=80">
+  <title>Drink House | Universo dos Drinks</title>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="loader" aria-label="Carregando site">
+    <div class="loader__glass">
+      <span></span>
+      <p>Drink House</p>
+    </div>
+  </div>
+
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="inicio">
+    <nav class="navbar" aria-label="Menu principal">
+      <a class="logo" href="#inicio" aria-label="Drink House inicio">
+        <span class="logo__mark">DH</span>
+        <span>Drink House</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-menu">
+        <a href="#inicio">Inicio</a>
+        <a href="#drinks">Drinks</a>
+        <a href="#categorias">Categorias</a>
+        <a href="#receitas">Receitas</a>
+        <a href="#curiosidades">Curiosidades</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </nav>
+
+    <section class="hero section" aria-labelledby="hero-title">
+      <div class="hero__content reveal">
+        <span class="eyebrow">mixologia premium</span>
+        <h1 id="hero-title">Explore o Universo dos Drinks</h1>
+        <p>Descubra sabores, ingredientes e receitas incriveis.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#drinks">Explorar Drinks</a>
+          <a class="btn btn--ghost" href="#receitas">Ver tecnicas</a>
+        </div>
+      </div>
+
+      <div class="hero__visual reveal" aria-label="Drink sofisticado em destaque">
+        <div class="hero__halo"></div>
+        <img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?auto=format&fit=crop&w=900&q=85" alt="Coqueteis sofisticados em balcao iluminado">
+        <div class="hero__badge">
+          <strong>150+</strong>
+          <span>receitas selecionadas</span>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="section drinks-section" id="drinks" aria-labelledby="drinks-title">
+      <div class="section-heading reveal">
+        <span class="eyebrow">selecionados</span>
+        <h2 id="drinks-title">Drinks em destaque</h2>
+        <p>Classicos, tropicais e autorais com informacoes claras para escolher, preparar e impressionar.</p>
+      </div>
+
+      <div class="filter-bar reveal" aria-label="Filtrar drinks">
+        <button class="filter-btn is-active" type="button" data-filter="todos">Todos</button>
+        <button class="filter-btn" type="button" data-filter="refrescante">Refrescante</button>
+        <button class="filter-btn" type="button" data-filter="doce">Doce</button>
+        <button class="filter-btn" type="button" data-filter="forte">Forte</button>
+        <button class="filter-btn" type="button" data-filter="tropical">Tropical</button>
+        <button class="filter-btn" type="button" data-filter="classico">Classico</button>
+        <button class="filter-btn" type="button" data-filter="sem-alcool">Sem alcool</button>
+      </div>
+
+      <div class="drinks-grid" id="drinksGrid"></div>
+    </section>
+
+    <section class="section categories" id="categorias" aria-labelledby="categories-title">
+      <div class="section-heading reveal">
+        <span class="eyebrow">explore por estilo</span>
+        <h2 id="categories-title">Categorias</h2>
+      </div>
+      <div class="category-grid">
+        <article class="category-card reveal"><span>✺</span><h3>Drinks Tropicais</h3><p>Frutas, frescor e clima de verao.</p></article>
+        <article class="category-card reveal"><span>◆</span><h3>Drinks Classicos</h3><p>Receitas eternas da coquetelaria.</p></article>
+        <article class="category-card reveal"><span>✦</span><h3>Drinks Premium</h3><p>Ingredientes nobres e finalizacao refinada.</p></article>
+        <article class="category-card reveal"><span>✧</span><h3>Drinks Sem Alcool</h3><p>Complexidade aromatica sem destilados.</p></article>
+        <article class="category-card reveal"><span>◌</span><h3>Drinks com Gin</h3><p>Botanicos, citricos e perfumados.</p></article>
+        <article class="category-card reveal"><span>⬡</span><h3>Drinks com Vodka</h3><p>Versateis, cristalinos e modernos.</p></article>
+        <article class="category-card reveal"><span>◈</span><h3>Drinks com Whisky</h3><p>Profundidade, madeira e especiarias.</p></article>
+      </div>
+    </section>
+
+    <section class="section carousel-section" aria-labelledby="carousel-title">
+      <div class="section-heading reveal">
+        <span class="eyebrow">famosos</span>
+        <h2 id="carousel-title">Icones da coquetelaria</h2>
+      </div>
+      <div class="carousel reveal" aria-roledescription="carrossel">
+        <button class="carousel__btn carousel__btn--prev" type="button" aria-label="Slide anterior">‹</button>
+        <div class="carousel__track" id="carouselTrack"></div>
+        <button class="carousel__btn carousel__btn--next" type="button" aria-label="Proximo slide">›</button>
+        <div class="carousel__dots" id="carouselDots" aria-label="Indicadores do carrossel"></div>
+      </div>
+    </section>
+
+    <section class="section education" id="receitas" aria-labelledby="education-title">
+      <div class="section-heading reveal">
+        <span class="eyebrow">guia essencial</span>
+        <h2 id="education-title">Aprenda a ler um coquetel</h2>
+      </div>
+      <div class="education-grid">
+        <article class="info-card reveal"><h3>O que e um coquetel</h3><p>Uma composicao equilibrada entre base alcoolica, acidez, dulcor, aroma, textura e temperatura.</p></article>
+        <article class="info-card reveal"><h3>Classicos vs contemporaneos</h3><p>Classicos priorizam formulas consagradas; contemporaneos reinterpretam tecnicas, ingredientes e apresentacao.</p></article>
+        <article class="info-card reveal"><h3>Principais destilados</h3><p>Gin, vodka, rum, tequila, whisky e cachaca definem estrutura, intensidade e identidade aromatica.</p></article>
+        <article class="info-card reveal"><h3>Tecnicas de preparo</h3><p>Mexer, bater, montar, macerar e coar mudam diluicao, espuma, brilho e sensacao na boca.</p></article>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Estatisticas Drink House">
+      <div class="stat reveal"><strong data-count="150">0</strong><span>Receitas</span></div>
+      <div class="stat reveal"><strong data-count="50">0</strong><span>Ingredientes</span></div>
+      <div class="stat reveal"><strong data-count="30">0</strong><span>Categorias</span></div>
+      <div class="stat reveal"><strong data-count="10000">0</strong><span>Visitantes</span></div>
+    </section>
+
+    <section class="section gallery-section" aria-labelledby="gallery-title">
+      <div class="section-heading reveal">
+        <span class="eyebrow">galeria</span>
+        <h2 id="gallery-title">Texturas, cores e copos</h2>
+      </div>
+      <div class="gallery" id="gallery"></div>
+    </section>
+
+    <section class="section faq" id="curiosidades" aria-labelledby="faq-title">
+      <div class="section-heading reveal">
+        <span class="eyebrow">curiosidades</span>
+        <h2 id="faq-title">Perguntas frequentes</h2>
+      </div>
+      <div class="faq-list">
+        <article class="faq-item reveal">
+          <button type="button" aria-expanded="false">Qual e o segredo de um drink equilibrado?</button>
+          <p>Equilibrio entre dulcor, acidez, diluicao, temperatura e aroma. Um bom drink nao deixa nenhum elemento dominar sozinho.</p>
+        </article>
+        <article class="faq-item reveal">
+          <button type="button" aria-expanded="false">Quando devo bater e quando devo mexer?</button>
+          <p>Bata quando houver sucos, xaropes, clara ou creme. Mexa quando a receita for formada majoritariamente por destilados e licores.</p>
+        </article>
+        <article class="faq-item reveal">
+          <button type="button" aria-expanded="false">Gelo realmente muda o resultado?</button>
+          <p>Sim. Gelo grande e solido dilui mais devagar, preserva textura e mantem o drink frio por mais tempo.</p>
+        </article>
+        <article class="faq-item reveal">
+          <button type="button" aria-expanded="false">Da para criar bons drinks sem alcool?</button>
+          <p>Sim. Use acidez, especiarias, chas, frutas, xaropes artesanais e agua com gas para criar camadas de sabor.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section contact" id="contato" aria-labelledby="contact-title">
+      <div class="contact__panel reveal">
+        <div>
+          <span class="eyebrow">contato</span>
+          <h2 id="contact-title">Fale com a Drink House</h2>
+          <p>Envie sua duvida, sugestao de receita ou proposta de experiencia premium.</p>
+        </div>
+        <form id="contactForm" novalidate>
+          <label>
+            Nome
+            <input type="text" name="name" autocomplete="name" required minlength="2">
+            <small></small>
+          </label>
+          <label>
+            E-mail
+            <input type="email" name="email" autocomplete="email" required>
+            <small></small>
+          </label>
+          <label>
+            Mensagem
+            <textarea name="message" rows="5" required minlength="10"></textarea>
+            <small></small>
+          </label>
+          <button class="btn btn--primary" type="submit">Enviar mensagem</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="logo"><span class="logo__mark">DH</span><span>Drink House</span></div>
+    <div class="footer__links">
+      <a href="#inicio">Inicio</a>
+      <a href="#drinks">Drinks</a>
+      <a href="#categorias">Categorias</a>
+      <a href="#contato">Contato</a>
+    </div>
+    <div class="socials" aria-label="Redes sociais">
+      <a href="#" aria-label="Instagram">IG</a>
+      <a href="#" aria-label="TikTok">TT</a>
+      <a href="#" aria-label="YouTube">YT</a>
+    </div>
+    <p>© 2026 Drink House. Todos os direitos reservados.</p>
+  </footer>
+
+  <button class="back-top" type="button" aria-label="Voltar ao topo">↑</button>
+
+  <div class="modal" id="recipeModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal__overlay" data-close-modal></div>
+    <article class="modal__content" tabindex="-1">
+      <button class="modal__close" type="button" aria-label="Fechar receita" data-close-modal>×</button>
+      <img id="modalImage" src="" alt="">
+      <div class="modal__body">
+        <span class="eyebrow" id="modalOrigin"></span>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDescription"></p>
+        <div class="modal__meta">
+          <span id="modalAlcohol"></span>
+          <span id="modalDifficulty"></span>
+          <span id="modalTime"></span>
+        </div>
+        <div class="modal__columns">
+          <section>
+            <h3>Ingredientes</h3>
+            <ul id="modalIngredients"></ul>
+          </section>
+          <section>
+            <h3>Modo de preparo</h3>
+            <ol id="modalSteps"></ol>
+          </section>
+        </div>
+        <section class="curiosity">
+          <h3>Curiosidade</h3>
+          <p id="modalCuriosity"></p>
+        </section>
+      </div>
+    </article>
+  </div>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagem ampliada" aria-hidden="true">
+    <button type="button" aria-label="Fechar galeria">×</button>
+    <img src="" alt="">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
